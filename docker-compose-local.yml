@@ -24,7 +24,7 @@ services:
     volumes:
       - ./configs/sigdep3/distribution:/openmrs/distribution
       # uncomment to persist the volumes on the Host file system
-      #- .data/sigdep3:/openmrs/data
+      - ./configs/sigdep3/data:/openmrs/data
     ports:
       - "8080:8080"
       - "1044:1044"
