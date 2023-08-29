@@ -17,25 +17,26 @@ services:
 
     labels:
       - 'traefik.enable=true'
-      - 'traefik.docker.network=public'
+      - 'traefik.docker.network=sigdep3_hie'
       - 'traefik.http.routers.api.rule=Host(`test2.cihis.org`) && PathPrefix(`/api`) || PathPrefix(`/dashboard`)'
       - 'traefik.http.routers.api.service=api@internal'
       - 'traefik.http.routers.api.tls=true'
       - 'traefik.http.routers.api.entrypoints=web-secure'
     networks:
-      - public
+      - hie
     ports:
       - 80:80
       - 443:443
+  
   certbot:
     image: certbot/certbot:latest
     container_name: certbot
     entrypoint: "certbot certonly --standalone -n --agree-tos --email help@cihis.org -d test2.cihis.org"
     volumes:
     - certs:/etc/letsencrypt
-    ports:
-    - 80:80
-    - 443:443
+    # ports:
+    # - 80:80
+    # - 443:443
 
   sigdep3:
     image: partnersinhealth/openmrs-server:latest
@@ -59,7 +60,8 @@ services:
       - ./configs/sigdep3/distribution:/openmrs/distribution
       # uncomment to persist the volumes on the Host file system
       #- .data/sigdep3:/openmrs/data
-
+    networks:
+      - hie
   sigdep-db:
     image: library/mysql:5.6
     restart: unless-stopped    
@@ -78,6 +80,19 @@ services:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       timeout: 20s
       retries: 10
+    networks:
+      - hie
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=sigdep3_hie'
+      
+      - 'traefik.http.services.sigdep3.loadbalancer.server.port=8080'
+      - 'traefik.http.services.sigdep3.loadbalancer.server.scheme=http'
+      - 'traefik.http.routers.sigdep3.service=sigdep3'
+      - 'traefik.http.routers.sigdep3.tls=true'
+      - 'traefik.http.routers.sigdep3.entrypoints=web-secure'
+      - 'traefik.http.routers.sigdep3.rule=Host(`test2.cihis.org`) && PathPrefix(`/openmrs`)'
+
     volumes:
       - ./configs/sigdep3/mysql.cnf:/etc/mysql/conf.d/custom.cnf  # mysql config preconfigured to allow binlog/debezium
       - ./configs/sigdep3/init-db:/docker-entrypoint-initdb.d
@@ -90,14 +105,17 @@ services:
   mongo:
     container_name: openhim-mongo
     image: mongo:3.4
+    restart: unless-stopped
+    networks:
+      - hie
 
   openhim-core:
     container_name: openhim-core
     image: jembi/openhim-core:v7.1.0
     restart: unless-stopped
     environment:
-      - mongo_url=mongodb://mongo/openhim
-      - mongo_atnaUrl=mongodb://mongo/openhim
+      - mongo_url=mongodb://openhim-mongo/openhim
+      - mongo_atnaUrl=mongodb://openhim-mongo/openhim
     healthcheck:
       test: "node /healthcheck.js"
       interval: 20s
@@ -107,10 +125,11 @@ services:
       - ./configs/openhim/healthcheck.js:/healthcheck.js
     depends_on:
       - mongo
-
+    networks:
+      - hie
     labels:
         - 'traefik.enable=true'
-        - 'traefik.docker.network=public'
+        - 'traefik.docker.network=sigdep3_hie'
         
         - 'traefik.http.services.openhim-api.loadbalancer.server.port=8080'
         - 'traefik.http.services.openhim-api.loadbalancer.server.scheme=https'
@@ -135,8 +154,6 @@ services:
   openhim-console:
     container_name: openhim-console
     image: jembi/openhim-console:v1.15.0
-    ports:
-        - "9000:80"
     volumes:
       - ./configs/openhim-console/default-local.json:/usr/share/nginx/html/config/default.json
     healthcheck:
@@ -146,21 +163,23 @@ services:
       retries: 3
     labels:
         - 'traefik.enable=true'
-        - 'traefik.docker.network=traefik-public'
+        - 'traefik.docker.network=sigdep3_hie'
         - 'traefik.http.services.openhim-console.loadbalancer.server.port=80'
         - 'traefik.http.services.openhim-console.loadbalancer.server.scheme=http'
         - 'traefik.http.routers.openhim-console.service=openhim-console'
         - 'traefik.http.routers.openhim-console.tls=true'
         - 'traefik.http.routers.openhim-console.entrypoints=web-secure'
-        - 'traefik.http.routers.openhim-console.rule=Host(`test2.cihis.org`)'    
-
+        - 'traefik.http.routers.openhim-console.rule=Host(`test2.cihis.org`)'
+    networks:
+      - hie
   # Loads Default OpenHIM Config
   openhim-config:
     container_name: openhim-config
     image: ghcr.io/i-tech-uw/openhim-config:v0.0.0
     volumes:
       - ./configs/openhim/test-openhim-config.json:/app/test-openhim-config.json
- 
+    networks:
+      - hie
 
 ###
   # OpenCR - Client Registry
@@ -182,15 +201,15 @@ services:
       - opencr-fhir
     labels:
       - 'traefik.enable=true'
-      - 'traefik.docker.network=public'
+      - 'traefik.docker.network=sigdep3_hie'
       - 'traefik.http.routers.opencr.tls=true'
       - 'traefik.http.routers.opencr.entrypoints=web-secure'
       - 'traefik.http.services.opencr.loadbalancer.server.port=3000'
-      - 'traefik.http.routers.opencr.rule=Host(`test2.cihis.org`) && PathPrefix(`/crux`) || PathPrefix(`/ocrux`)'
+      - 'traefik.http.routers.opencr.rule=Host(`test2.cihis.org`) && PathPrefix(`/crux`) || PathPrefix(`/ocrux`)' 
       - 'traefik.http.services.opencr.loadbalancer.server.scheme=http'
       - 'traefik.http.routers.opencr.service=opencr'
     networks:
-      - public
+      - hie
       
   opencr-fhir:
     image: hapiproject/hapi:v5.1.0
@@ -204,6 +223,8 @@ services:
       retries: 3
     volumes:
       - /data/hapi
+    networks:
+      - hie
     #   - ./configs/opencr/application.yml:/data/hapi/application.yaml
     # env_file:
     #   - ./configs/opencr/.env
@@ -226,7 +247,8 @@ services:
       - /usr/share/elasticsearch/data
     healthcheck:
       test: "curl --silent --fail http://es:9200/_cluster/health || exit 1"
-
+    networks:
+      - hie
 volumes:
   db-data:
   key_trust-store-volume:
@@ -234,5 +256,4 @@ volumes:
   letsencrypt:
 
 networks:
-  public:
-    name: public
+  hie:
