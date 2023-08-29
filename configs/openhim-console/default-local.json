@@ -2,7 +2,7 @@
   "version": "1.14.4",
   "minimumCoreVersion": "5.2.0",
   "protocol": "https",
-  "host": "localhost",
+  "host": "test2.cihis.org",
   "port": "8085",
   "title": "SIGDEP3 Demo Admin Console",
   "footerTitle": "OpenHIM Administration Console",
