@@ -33,10 +33,10 @@ services:
     container_name: certbot
     entrypoint: "certbot certonly --standalone -n --agree-tos --email help@cihis.org -d test2.cihis.org"
     volumes:
-    - certs:/etc/letsencrypt
-    # ports:
-    # - 80:80
-    # - 443:443
+     - certs:/etc/letsencrypt
+#    ports:
+#     - 80:80
+#     - 443:443
 
   sigdep3:
     image: partnersinhealth/openmrs-server:latest
@@ -177,7 +177,7 @@ services:
     container_name: openhim-config
     image: ghcr.io/i-tech-uw/openhim-config:v0.0.0
     volumes:
-      - ./configs/openhim/test-openhim-config.json:/app/test-openhim-config.json
+      - ./configs/openhim/_config.json:/app/test-openhim-config.json
     networks:
       - hie
 
