@@ -1,0 +1,11 @@
+projectName: SIGDEP3-CI-HIE
+image: itechuw/sigdep3-ci-hie:0.0.0-alpha.1
+logPath: /tmp/logs
+
+packages:
+  - interoperability-layer-openhim
+  - reverse-proxy-traefik
+  - fhir-datastore-hapi-fhir
+  - dashboard-visualiser-superset
+  - monitoring
+  - identity-access-manager-keycloak
