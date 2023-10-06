@@ -1,0 +1,142 @@
+{
+  "resourceType": "Basic",
+  "id": "patientreport",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2019-07-30T07:34:24.098+00:00",
+    "profile": [
+      "http://ihris.org/fhir/StructureDefinition/iHRISRelationship"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportDetails",
+      "extension": [
+        {
+          "url": "label",
+          "valueString": "Patient Report"
+        },
+        {
+          "url": "name",
+          "valueString": "patients"
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "gender"
+            },
+            {
+              "url": "name",
+              "valueString": "gender"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "birthDate"
+            },
+            {
+              "url": "name",
+              "valueString": "birthDate"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "given"
+            },
+            {
+              "url": "name",
+              "valueString": "name.where(use='official').first().given"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "middle"
+            },
+            {
+              "url": "name",
+              "valueString": "name.where(use='official').last().given"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "family"
+            },
+            {
+              "url": "name",
+              "valueString": "name.where(use='official').family"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "phone"
+            },
+            {
+              "url": "name",
+              "valueString": "telecom.value"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "art"
+            },
+            {
+              "url": "name",
+              "valueString": "identifier.where(system='http://openelis-global.org/pat_nationalId').value"
+            }
+          ]
+        },
+        {
+          "url": "http://ihris.org/fhir/StructureDefinition/iHRISReportElement",
+          "extension": [
+            {
+              "url": "label",
+              "valueString": "upi"
+            },
+            {
+              "url": "name",
+              "valueString": "identifier.where(system='https://openmrs.org/UPI').value"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://ihris.org/fhir/ValueSet/ihris-resource",
+        "code": "iHRISRelationship"
+      }
+    ],
+    "text": "iHRISRelationship"
+  },
+  "subject": {
+    "reference": "StructureDefinition/Patient"
+  }
+}

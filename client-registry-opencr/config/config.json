@@ -1,0 +1,107 @@
+{
+  "auth": {
+    "secret": "3084e343-71bc-4247-86e4-ea210af82c28",
+    "tokenDuration": 5400
+  },
+  "app": {
+    "port": 3000,
+    "installed": false
+  },
+  "clients": [
+    {
+      "id": "sigdep3",
+      "displayName": "SIGDEP3"
+    },
+    {
+      "id": "sigdep3-35",
+      "displayName": "2eme SIGDEP3"
+    },
+    {
+      "id": "postman",
+      "displayName": "Postman Testing"
+    }
+  ],
+  "mediator": {
+    "api": {
+      "username": "root@openhim.org",
+      "password": "openhim",
+      "apiURL": "https://openhim-core:8080",
+      "trustSelfSigned": true,
+      "urn": "urn:mediator:ci_clientregistry"
+    },
+    "register": true
+  },
+  "cronJobs": {
+    "patientReprocessing": "0 21 * * *"
+  },
+  "fhirServer": {
+    "username": "hapi",
+    "password": "hapi",
+    "baseURL": "http://opencr-fhir:8080/fhir"
+  },
+  "elastic": {
+    "server": "http://es:9200",
+    "username": "",
+    "password": "",
+    "max_compilations_rate": "10000/1m",
+    "index": "patients"
+  },
+  "codes": {
+    "goldenRecord": "5c827da5-4858-4f3d-a50c-62ece001efea"
+  },
+  "structureDefinition": {
+    "uri": "http://openclientregistry.org/fhir",
+    "reportRelationship": "patientreport"
+  },
+  "matching": {
+    "tool": "elasticsearch"
+  },
+  "systems": {
+    "CRBaseURI": "http://openclientregistry.org/fhir",
+    "internalid": {
+      "uri": [
+        "http://clientregistry.org/openmrs",
+        "http://tap-cdi.openelis.org/openmrs",
+        "http://tap-demo.openelisci.org/openmrs",
+        "http://35.85.179.171/openmrs"
+      ],
+      "displayName": "Internal ID"
+    },
+    "pat_nationalId": {
+      "uri": "http://openelis-global.org/pat_nationalId",
+      "displayName": "National Id"
+    },
+    "art": {
+      "uri": "http://clientregistry.org/artnumber",
+      "displayName": "ART ID"
+    },
+    "upi": {
+      "uri": [
+        "http://cote.divore/ext/identifier/UPI",
+        "https://openmrs.org/UPI",
+        "http://35.85.179.171/UPI"
+      ],
+      "displayName": "UPID"
+    },
+    "openmrs": {
+      "uri": [
+        "http://tap-cdi.openelis.org/ext/identifier/openmrs-id",
+        "http://35.85.179.171/ext/identifier/openmrs-id"
+      ],
+      "displayName": "OpenMRS ID"
+    },
+    "artnumber": {
+      "uri": "http://clientregistry.org/artnumber",
+      "displayName": "ART Number"
+    },
+    "brokenMatch": {
+      "uri": "http://clientregistry.org/brokenMatch"
+    }
+  },
+  "sync": {
+    "lastFHIR2ESSync": "2023-03-15T23:11:44"
+  },
+  "__comments": {
+    "matching.tool": "this tells if the app should use mediator algorithms or elasticsearch algorithms for matching, two options mediator and elasticsearch"
+  }
+}
