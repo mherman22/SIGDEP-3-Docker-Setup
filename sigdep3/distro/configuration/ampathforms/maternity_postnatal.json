@@ -1,12 +1,12 @@
 {
-  "name": "Maternity Form",
+  "name": "Postnatal Form",
   "processor": "EncounterFormProcessor",
   "referencedForms": [],
-  "uuid": "c65c5d66-b0a4-45e6-907e-57168f94baf3",
+  "uuid": "802e0880-c429-440b-ac04-bfd817237ab0",
   "version": "1.0",
   "published": true,
   "retired": false,
-  "encounter": "Maternity",
+  "encounter": "Postnatal",
   "pages": [
     {
       "label": "Service VIH et autres",
@@ -17,42 +17,76 @@
           "questions": [
             {
               "id": "NumérodePriseenCharge",
-              "label":"Numéro de Prise en Charge",
+              "label": "Numéro de Prise en Charge",
               "questionOptions": {
-                  "rendering": "textarea",
-                  "concept": "164669AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                  "rows": 1
+                "rendering": "textarea",
+                "concept": "164669AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
               },
               "type": "obs",
               "validators": []
-          },
-          {
-            "id": "screeningNumber",
-            "label":"Screening Number",
-            "questionOptions": {
+            },
+            {
+              "id": "screeningNumber",
+              "label": "Screening Number",
+              "questionOptions": {
                 "rendering": "textarea",
                 "concept": "2cf1a566-24ea-486f-a441-875ab8ae98e7",
                 "rows": 1
+              },
+              "type": "obs",
+              "validators": []
             },
-            "type": "obs",
-            "validators": []
-        },
             {
-              "id": "prenatalRank",
-              "label": "Antenatal number",
+              "id": "Spouse screening",
+              "label": "Spouse screening",
               "type": "obs",
               "questionOptions": {
-                "rendering": "number",
-                "concept": "1425AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                "rendering": "radio",
+                "concept": "1b9d1642-8a8c-49db-9465-9b5451864139",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown",
+                    "conceptMappings": []
+                  }
+                ]
               }
             },
             {
-              "id": "WOA",
-              "label": "Weeks of Amenorrhea",
+              "id": "SpouseScreeningResult",
+              "label": "Spouse screening result",
               "type": "obs",
               "questionOptions": {
-                "rendering": "number",
-                "concept": "0f6b501d-32a8-41b3-a63e-fd41d8cb247d"
+                "rendering": "radio",
+                "concept": "05033060-a07d-40f9-8c35-159830b5294c",
+                "answers": [
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
               }
             },
             {
@@ -212,12 +246,12 @@
               }
             },
             {
-              "id": "Spouse screening",
-              "label": "Spouse screening",
+              "id": "ProphylaxieARVremiseàl'enfant ",
+              "label": "Prophylaxie ARV remise à l'enfant ",
               "type": "obs",
               "questionOptions": {
                 "rendering": "radio",
-                "concept": "1b9d1642-8a8c-49db-9465-9b5451864139",
+                "concept": "165019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "answers": [
                   {
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -230,46 +264,11 @@
                     "conceptMappings": []
                   },
                   {
-                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "Unknown",
-                    "conceptMappings": []
-                  }
-                ]
-              }
-            },
-            {
-              "id": "SpouseScreeningResult",
-              "label": "Spouse screening result",
-              "type": "obs",
-              "questionOptions": {
-                "rendering": "radio",
-                "concept": "05033060-a07d-40f9-8c35-159830b5294c",
-                "answers": [
-                  {
-                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "Positive",
-                    "conceptMappings": []
-                  },
-                  {
-                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "Negative",
-                    "conceptMappings": []
-                  },
-                  {
                     "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "label": "Not Applicable",
                     "conceptMappings": []
                   }
                 ]
-              }
-            },
-            {
-              "id": "DateOfNextAppointment",
-              "label": "Date of Next Appointment",
-              "type": "obs",
-              "questionOptions": {
-                "rendering": "date",
-                "concept": "b0008bd9-0f76-450d-90b5-387101b1488e"
               }
             }
           ]
@@ -277,5 +276,5 @@
       ]
     }
   ],
-  "description": "Maternity form"
+  "description": "Postnatal form"
 }

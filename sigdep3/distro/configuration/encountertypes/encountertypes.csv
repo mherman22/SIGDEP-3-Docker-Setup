@@ -1,5 +1,7 @@
-Uuid,Void/Retire,Name,Description,View privilege,Edit privilege,display:en,_order:1000
-8b51ec84-de51-4090-bcde-b6862dc0e253,,REQUEST_EXAM,REQUEST_EXAM,,,REQUEST_EXAM,
-3596fafb-6f6f-4396-8c87-6e63a0f1bd71,,Lab Results,Encounter for capturing lab results,,,,
-39da3525-afe4-45ff-8977-c53b7b359158,,Order,Encounter for capturing orders,,,,
-01a5d7c5-19aa-4963-b890-58f04abf2b6e,,Maternity,Encounter for Maternity,,,,
+Uuid,Void/Retire,Name,Description,View privilege,Edit privilege,display:en,display:fr,_order:1000
+8b51ec84-de51-4090-bcde-b6862dc0e253,,REQUEST_EXAM,REQUEST_EXAM,,,REQUEST_EXAM,,
+3596fafb-6f6f-4396-8c87-6e63a0f1bd71,,Lab Results,Encounter for capturing lab results,,,,,
+39da3525-afe4-45ff-8977-c53b7b359158,,Order,Encounter for capturing orders,,,,,
+01a5d7c5-19aa-4963-b890-58f04abf2b6e,,Prenatal,Encounter for Prenatal,,,,Prenatal,
+23271878-a8e5-4fa7-abec-8120d89748b4,,Labour,Encounter for Prenatal,,,,Accouchement,
+802e0880-c429-440b-ac04-bfd817237ab0,,Postnatal,Encounter for Prenatal,,,,Postnatal,

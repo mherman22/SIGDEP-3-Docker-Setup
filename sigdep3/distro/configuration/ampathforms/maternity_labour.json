@@ -1,0 +1,365 @@
+{
+  "name": "Labour Form",
+  "processor": "EncounterFormProcessor",
+  "referencedForms": [],
+  "uuid": "5a3af465-c230-4990-a55e-cfbc7fb9cfd6",
+  "version": "1.0",
+  "published": true,
+  "retired": false,
+  "encounter": "Labour",
+  "pages": [
+    {
+      "label": "Service VIH et autres",
+      "sections": [
+        {
+          "label": "Service VIH et autres",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "NumérodePriseenCharge",
+              "label": "Numéro de Prise en Charge",
+              "questionOptions": {
+                "rendering": "textarea",
+                "concept": "164669AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "screeningNumber",
+              "label": "Screening Number",
+              "questionOptions": {
+                "rendering": "textarea",
+                "concept": "2cf1a566-24ea-486f-a441-875ab8ae98e7",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "Spouse screening",
+              "label": "Spouse screening",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "1b9d1642-8a8c-49db-9465-9b5451864139",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "SpouseScreeningResult",
+              "label": "Spouse screening result",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "05033060-a07d-40f9-8c35-159830b5294c",
+                "answers": [
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "StatusAtReception",
+              "label": "Status at reception",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "58f25673-a2de-4181-b75e-021058d3641c",
+                "answers": [
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Unknown",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ARVStatus",
+              "label": "ARV Status",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "9499cdc6-44ca-425b-b8b8-cd3278c63b5c",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "TestProposal",
+              "label": "Test Proposal",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "b2391e04-3846-470f-87c0-f201d288eacf",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "TestResult",
+              "label": "Test Result",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "0b728958-6224-43ae-8d93-38c427f62030",
+                "answers": [
+                  {
+                    "concept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Positive",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Negative",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ResultAnnouncement",
+              "label": "Result Announcement",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "e1592fac-a8b2-4111-88d8-c9c529521119",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ARVDiscount",
+              "label": "ARV discount",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "36623a56-4628-49e5-9f59-bf681fd8ae35",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "DeliveryDay",
+              "label": "Delivery day",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            },{
+              "id": "DeliveredAtHome",
+              "label": "Delivered At Home",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "1501AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },{
+              "id": "Conditionofthechildatbirth",
+              "label": "Condition of the child at birth",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "a5aa3e41-b62d-40ea-ba74-c129d6968e79",
+                "answers": [
+                  {
+                    "concept": "164456AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Vivant",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "140399AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Death Foetal",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "164774AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MORT NE FRAIS",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "164775AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "MORT NE MACERE",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "Term",
+              "label": "Term",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "4aff0b3b-4ef3-4195-92e4-6c31996289ad",
+                "answers": [
+                  {
+                    "concept": "1395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Term birth of newborn",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "113841AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Premature Birth",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "164233AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Né post terme",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ProphylaxieARVremiseàl'enfant ",
+              "label": "Prophylaxie ARV remise à l'enfant ",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "165019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Not Applicable",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Labour form"
+}
