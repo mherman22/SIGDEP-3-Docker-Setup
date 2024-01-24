@@ -27,7 +27,7 @@
     <clientregistry.version>1.1.8-SNAPSHOT</clientregistry.version>
     <event.version>2.9.0</event.version>
     <fhir2.version>1.10.0</fhir2.version>
-    <hivscreening.version>1.0.0</hivscreening.version>
+    <hivscreening.version>1.1.0-SNAPSHOT</hivscreening.version>
     <htmlformentry.version>4.0.0</htmlformentry.version>
     <htmlwidgets.version>1.10.0</htmlwidgets.version>
     <idgen.version>4.6.0</idgen.version>
@@ -38,7 +38,7 @@
     <metadatasharing.version>1.9.0</metadatasharing.version>
     <openconceptlab.version>1.2.9</openconceptlab.version>
     <o3forms.version>2.2.0-SNAPSHOT</o3forms.version>
-    <ptme.version>1.1.1</ptme.version>
+    <ptme.version>1.2.0-SNAPSHOT</ptme.version>
     <reporting.version>1.21.0</reporting.version>
     <reportingrest.version>1.13.0</reportingrest.version>
     <serialization-xstream.version>0.2.14</serialization-xstream.version>
