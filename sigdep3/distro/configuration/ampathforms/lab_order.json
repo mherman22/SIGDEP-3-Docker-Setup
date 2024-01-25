@@ -1,0 +1,532 @@
+{
+  "name": "Laboratory Order",
+  "processor": "EncounterFormProcessor",
+  "referencedForms": [],
+  "uuid": "ebc6c3b6-f754-4863-a269-ed7be3bf411b",
+  "version": "1.0",
+  "published": true,
+  "retired": false,
+  "encounter": "Order",
+  "pages": [
+    {
+      "label": "Formulaire de demande de charge virale",
+      "sections": [
+        {
+          "label": "DONNEES CLINIQUES",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "Type_de_VIH",
+              "label": "Type de VIH",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "CI0030001AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "CI0030002AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "VIH-1",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "CI0030003AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "VIH-2",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "CI0030004AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "VIH-1 et VIH-2",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "STARTED_ARV_TREATMENT",
+              "label": "Le patient est-il actuellement sous ARV ?",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "160533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ARV_START_DATE",
+              "label": "Si oui, Année initiation 1er traitement ARV",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "159599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            },
+            {
+              "id": "ANTI_RETRO_TREATMENT_LINE",
+              "label": "Ligne thérapeutique",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "166073AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "166074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "1èreLigne",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "166075AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "2èmeLigne",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "166076AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "3èmeLigne",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Autre ligne",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ARV_REGIMEN",
+              "label": "Régime thérapeutique",
+              "type": "obs",
+              "required": "true",
+              "questionOptions": {
+                "concept": "162240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rendering": "select",
+                "answers": [
+                  {
+                    "concept": "164003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC 3TC EFV"
+                  },
+                  {
+                    "concept": "164004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC 3TC IDV/r"
+                  },
+                  {
+                    "concept": "164005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC 3TC LPV/r"
+                  },
+                  {
+                    "concept": "164006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC 3TC NVP"
+                  },
+                  {
+                    "concept": "164007AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC 3TC SQV/r"
+                  },
+                  {
+                    "concept": "164008AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC DDI EFV"
+                  },
+                  {
+                    "concept": "164009AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC DDI IDV/r"
+                  },
+                  {
+                    "concept": "164010AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC DDI LPV/r"
+                  },
+                  {
+                    "concept": "164011AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "ABC DDI SQV/r"
+                  },
+                  {
+                    "concept": "164054AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC DDI"
+                  },
+                  {
+                    "concept": "164055AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC IDV"
+                  },
+                  {
+                    "concept": "164056AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC IDV/r"
+                  },
+                  {
+                    "concept": "164057AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC NFV"
+                  },
+                  {
+                    "concept": "164058AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC NVP"
+                  },
+                  {
+                    "concept": "164059AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC SQV"
+                  },
+                  {
+                    "concept": "164060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC SQV/r"
+                  },
+                  {
+                    "concept": "164061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC TDF"
+                  },
+                  {
+                    "concept": "164062AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT ABC DDI"
+                  },
+                  {
+                    "concept": "164064AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT DDI EFV"
+                  },
+                  {
+                    "concept": "164065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT DDI IDV/r"
+                  },
+                  {
+                    "concept": "164066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT DDI LPV/r"
+                  },
+                  {
+                    "concept": "164067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT DDI SQV/r"
+                  },
+                  {
+                    "concept": "164068AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT TDF FTC"
+                  },
+                  {
+                    "concept": "164142AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DDI 3TC EFV"
+                  },
+                  {
+                    "concept": "164143AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DDI 3TC IDV/r"
+                  },
+                  {
+                    "concept": "164144AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DDI 3TC LPV/r"
+                  },
+                  {
+                    "concept": "164145AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DDI 3TC NVP"
+                  },
+                  {
+                    "concept": "164146AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DDI 3TC SQV/r"
+                  },
+                  {
+                    "concept": "164407AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF 3TC EFV"
+                  },
+                  {
+                    "concept": "164408AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF 3TC IDV/r"
+                  },
+                  {
+                    "concept": "164409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF 3TC LPV/r"
+                  },
+                  {
+                    "concept": "164410AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF 3TC NVP"
+                  },
+                  {
+                    "concept": "164411AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF 3TC SQV/r"
+                  },
+                  {
+                    "concept": "164412AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF DDI IDV/r"
+                  },
+                  {
+                    "concept": "164413AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF DDI LPV/r"
+                  },
+                  {
+                    "concept": "164414AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF FTC ABC"
+                  },
+                  {
+                    "concept": "164416AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF FTC LPV/r"
+                  },
+                  {
+                    "concept": "164417AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF FTC NVP"
+                  },
+                  {
+                    "concept": "164634AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT 3TC TDF LPV/r"
+                  },
+                  {
+                    "concept": "164679AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "AZT FTC LPV/r"
+                  },
+                  {
+                    "concept": "164680AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "TDF ABC LPV/r"
+                  }
+                ]
+              },
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "Motif de la demande de la CV",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "REASON_FOR_VIRAL_LOAD_REQUEST",
+              "label": "Motif de la demande de la CV",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "CI0050002AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "CI0050003AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "CV contrôle sous ARV",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "160569AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Échec virologique",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "160566AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Échec immunologique",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "163523AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Échec clinique",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "OTHER_REASON",
+              "label": "Autres (à préciser)",
+              "questionOptions": {
+                "rendering": "textarea",
+                "concept": "CI0050001AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            }
+          ]
+        },
+        {
+          "label": "A l'initiation du traitement",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "INNITIAL_CD4_COUNT",
+              "label": "CD4 valeur absolue",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "164429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "INNITIAL_CD4_PERCENT",
+              "label": "CD4 pourcentage",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "164792AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "INNITIAL_CD4_DATE",
+              "label": "Date",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "159376AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            }
+            
+          ]
+        },
+        {
+          "label": "A la demande de Charge virale",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "LATE_CD4_COUNT",
+              "label": "CD4 valeur absolue",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "5497AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "LATE_CD4_PERCENT",
+              "label": "CD4 pourcentage",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "LATE_CD4_DATE",
+              "label": "Date",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "160103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            }
+            
+          ]
+        },
+        {
+          "label": "Viral Load",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "id": "HAS_VIRAL_LOAD",
+              "label": "Le patient a-t-il déjà bénéficié d’une mesure de charge virale ?",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "CI0050004AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Yes",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "No",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            },
+            {
+              "id": "LAST_VIRAL_LOAD",
+              "label": "Si oui, Valeur",
+              "questionOptions": {
+                "rendering": "number",
+                "concept": "163545AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "rows": 1
+              },
+              "type": "obs",
+              "validators": []
+            },
+            {
+              "id": "LAST_VIRAL_LOAD_DATE",
+              "label": "Date",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "163281AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            }
+            
+          ]
+        },
+        {
+          "label": "IDENTIFICATION DU PRÉLÈVEMENT",
+          "isExpanded": "true",
+          "questions": [
+            {
+              "type": "encounterProvider",
+              "label": "Nom du clinicien",
+              "id": "provider",
+              "required": "true",
+              "default": "",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              }
+            },
+            {
+              "id": "VIRAL_LOAD_REQUEST_DATE",
+              "label": "Date de la demande de l'analyse",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "date",
+                "concept": "CI0050005AAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              }
+            },
+            {
+              "type": "encounterProvider",
+              "label": "Nom du préleveur",
+              "id": "provider2",
+              "required": "true",
+              "default": "",
+              "questionOptions": {
+                "rendering": "ui-select-extended"
+              }
+            },
+            {
+              "label": "Date du prélèvement",
+              "type": "encounterDatetime",
+              "required": "true",
+              "default": "",
+              "id": "encDate",
+              "questionOptions": {
+                "rendering": "date"
+              },
+              "validators": [
+                {
+                  "type": "date"
+                }
+              ]
+            },
+            {
+              "id": "COLLECTION_TYPE",
+              "label": "Type de prélèvement",
+              "type": "obs",
+              "questionOptions": {
+                "rendering": "radio",
+                "concept": "CI0050007AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers": [
+                  {
+                    "concept": "CI0050008AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "Plasma",
+                    "conceptMappings": []
+                  },
+                  {
+                    "concept": "CI0050009AAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label": "DBS",
+                    "conceptMappings": []
+                  }
+                ]
+              }
+            }
+          ]
+        }
+        
+      ]
+    }
+  ],
+  "description": "Laboratory Order form"
+}
