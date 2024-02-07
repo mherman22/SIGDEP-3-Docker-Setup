@@ -16,6 +16,20 @@
           "isExpanded": "true",
           "questions": [
             {
+              "questionOptions": {
+                "rendering": "workspace-launcher",
+                "workspaceName": "add-lab-order",
+                "buttonType": "ghost",
+                "buttonLabel": "Add orders +",
+                "id": "ordering-id"
+              },
+              "id": "orderDrugs",
+              "label": "Order for labs here:",
+              "hide": {
+                "hideWhenExpression": "isEmpty(medicinePrescribed) || medicinePrescribed !== '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'"
+              }
+            },
+            {
               "id": "Type_de_VIH",
               "label": "Type de VIH",
               "type": "obs",
@@ -47,7 +61,7 @@
               "type": "obs",
               "questionOptions": {
                 "rendering": "radio",
-                "concept": "160533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "concept": "087e1e6c-6d5a-423f-8176-4e1f77784634",
                 "answers": [
                   {
                     "concept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -106,7 +120,6 @@
               "id": "ARV_REGIMEN",
               "label": "Régime thérapeutique",
               "type": "obs",
-              "required": "true",
               "questionOptions": {
                 "concept": "162240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 "rendering": "select",
@@ -461,7 +474,6 @@
               "type": "encounterProvider",
               "label": "Nom du clinicien",
               "id": "provider",
-              "required": "true",
               "default": "",
               "questionOptions": {
                 "rendering": "ui-select-extended"
@@ -480,7 +492,6 @@
               "type": "encounterProvider",
               "label": "Nom du préleveur",
               "id": "provider2",
-              "required": "true",
               "default": "",
               "questionOptions": {
                 "rendering": "ui-select-extended"
@@ -489,7 +500,6 @@
             {
               "label": "Date du prélèvement",
               "type": "encounterDatetime",
-              "required": "true",
               "default": "",
               "id": "encDate",
               "questionOptions": {

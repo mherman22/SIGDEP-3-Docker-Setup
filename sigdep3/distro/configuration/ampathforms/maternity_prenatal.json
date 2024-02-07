@@ -16,28 +16,6 @@
           "isExpanded": "true",
           "questions": [
             {
-              "id": "NumérodePriseenCharge",
-              "label":"Numéro de Prise en Charge",
-              "questionOptions": {
-                  "rendering": "textarea",
-                  "concept": "164669AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                  "rows": 1
-              },
-              "type": "obs",
-              "validators": []
-          },
-          {
-            "id": "screeningNumber",
-            "label":"Screening Number",
-            "questionOptions": {
-                "rendering": "textarea",
-                "concept": "2cf1a566-24ea-486f-a441-875ab8ae98e7",
-                "rows": 1
-            },
-            "type": "obs",
-            "validators": []
-        },
-            {
               "id": "prenatalRank",
               "label": "Antenatal number",
               "type": "obs",
