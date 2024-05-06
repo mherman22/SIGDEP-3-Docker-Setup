@@ -18,7 +18,7 @@
     </globalProperty>
     <globalProperty>
       <property>patient.viewingAttributeTypes</property>
-            <value>phone</value>
+            <value>phone, Patient Status, Patient Status Date</value>
     </globalProperty>
     <globalProperty>
       <property>user.viewingAttributeTypes</property>
