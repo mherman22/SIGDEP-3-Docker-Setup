@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
 
-
 #OpenHIM -IOL
   mongo:
     container_name: openhim-mongo
@@ -167,7 +166,80 @@ services:
     networks:
       - hie
 
-  
+   # OpenELIS Setup
+   ####
+  # OpenELIS
+  ####
+  certs:
+    container_name: oe-certs
+    image: ghcr.io/i-tech-uw/certgen:main
+    restart: always
+    environment:
+      - KEYSTORE_PW="kspass"
+      - TRUSTSTORE_PW="tspass"
+    volumes:
+      - key_trust-store-volume:/etc/openelis-global
+      - keys-vol:/etc/ssl/private/
+      - certs-vol:/etc/ssl/certs/
+
+  database:
+    container_name: openelisglobal-database
+    image: postgres:9.5
+    ports:
+       - "15432:5432"
+    restart: always
+    env_file:
+      - ./configs/openelis/database/database.env
+    volumes:
+      # preserves the database between containers
+      - db-data:/var/lib/postgresql/data
+        # files here will run on install
+      - ./configs/openelis/database/dbInit:/docker-entrypoint-initdb.d
+
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "clinlims", "-U", "clinlims"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+
+  oe.openelis.org:
+    container_name: openelisglobal-webapp
+    image: itechuw/openelis-global-2:develop
+    depends_on:
+      - database
+    ports:
+       - "8443:8443"
+    restart: always
+    environment:
+      - TZ=Africa/Nairobi
+        # context.xml doesn't seem to be able to pick up environment variables directly, so we are passing them in as CATALINA_OPTS
+      - CATALINA_OPTS= -Ddatasource.url=jdbc:postgresql://database:5432/clinlims -Ddatasource.username=clinlims -Ddatasource.password=clinlims
+    volumes:
+      - key_trust-store-volume:/etc/openelis-global
+      # -  openelis-plugins-data:/var/lib/openelis-global/plugins
+      - ./configs/openelis/tomcat/oe_server.xml:/usr/local/tomcat/conf/server.xml
+    secrets:
+      - source: datasource.password
+      - source: common.properties
+
+
+  fhir.openelis.org:
+    container_name: external-fhir-api
+    image: hapiproject/hapi:v5.5.1
+    # ports:
+    # - "8081:8080"
+    restart: always
+    environment:
+      - hapi.fhir.auto_create_placeholder_reference_targets=true
+      - hapi.fhir.allow_placeholder_references=true
+      - hapi.fhir.allow_external_references=true
+
+secrets:
+  datasource.password:
+    file: ./configs/openelis/properties/datasource.password
+  common.properties:
+    file: ./configs/openelis/properties/common.properties
+
 volumes:
   db-data:
   key_trust-store-volume:
