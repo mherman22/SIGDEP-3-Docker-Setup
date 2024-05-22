@@ -204,7 +204,7 @@ services:
 
   oe.openelis.org:
     container_name: openelisglobal-webapp
-    image: itechuw/openelis-global-2:develop
+    image: ghcr.io/i-tech-uw/openelis-global-2:develop
     depends_on:
       - database
     ports:
