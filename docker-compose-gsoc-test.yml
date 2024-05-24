@@ -1,8 +1,5 @@
-version: '3.8'
-
 services:
 
-#OpenHIM -IOL
   mongo:
     container_name: openhim-mongo
     ports:
@@ -10,7 +7,7 @@ services:
     image: mongo:3.4
     networks:
       - hie
-      
+
   openhim-core:
     container_name: openhim-core
     image: jembi/openhim-core:v7.1.0
@@ -34,31 +31,31 @@ services:
       - "5050:5050"
       - "5051:5051"
       - "5052:5052"
-      - "7788:7788"       
+      - "7788:7788"
     networks:
       - hie
     labels:
-        - 'traefik.enable=true'
-        - 'traefik.docker.network=sigdep3_hie'
-        - 'traefik.http.services.openhim-api.loadbalancer.server.port=8080'
-        - 'traefik.http.services.openhim-api.loadbalancer.server.scheme=https'
-        - 'traefik.http.routers.openhim-api.service=openhim-api'
-        - 'traefik.http.routers.openhim-api.tls=true'
-        - 'traefik.http.routers.openhim-api.entrypoints=web-secure'
-        - 'traefik.http.routers.openhim-api.rule=Host(`test2.cihis.org`) && PathPrefix(`/openhimcomms`)'
-        - 'traefik.http.routers.openhim-api.middlewares=openhim-api'      
-        - 'traefik.http.middlewares.openhim-api.stripprefix.prefixes=/openhimcomms'
-        - 'traefik.http.middlewares.openhim-api.stripprefix.forceSlash=false'
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=sigdep3_hie'
+      - 'traefik.http.services.openhim-api.loadbalancer.server.port=8080'
+      - 'traefik.http.services.openhim-api.loadbalancer.server.scheme=https'
+      - 'traefik.http.routers.openhim-api.service=openhim-api'
+      - 'traefik.http.routers.openhim-api.tls=true'
+      - 'traefik.http.routers.openhim-api.entrypoints=web-secure'
+      - 'traefik.http.routers.openhim-api.rule=Host(`test2.cihis.org`) && PathPrefix(`/openhimcomms`)'
+      - 'traefik.http.routers.openhim-api.middlewares=openhim-api'
+      - 'traefik.http.middlewares.openhim-api.stripprefix.prefixes=/openhimcomms'
+      - 'traefik.http.middlewares.openhim-api.stripprefix.forceSlash=false'
 
-        - 'traefik.http.services.openhim-ssl.loadbalancer.server.port=5000'
-        - 'traefik.http.services.openhim-ssl.loadbalancer.server.scheme=https'
-        - 'traefik.http.routers.openhim-ssl.service=openhim-ssl'
-        - 'traefik.http.routers.openhim-ssl.tls=true'
-        - 'traefik.http.routers.openhim-ssl.entrypoints=web-secure'
-        - 'traefik.http.routers.openhim-ssl.rule=Host(`test2.cihis.org`) && PathPrefix(`/openhimcore`)'
-        - 'traefik.http.routers.openhim-ssl.middlewares=openhim-ssl'      
-        - 'traefik.http.middlewares.openhim-ssl.stripprefix.prefixes=/openhimcore'
-        - 'traefik.http.middlewares.openhim-ssl.stripprefix.forceSlash=false'
+      - 'traefik.http.services.openhim-ssl.loadbalancer.server.port=5000'
+      - 'traefik.http.services.openhim-ssl.loadbalancer.server.scheme=https'
+      - 'traefik.http.routers.openhim-ssl.service=openhim-ssl'
+      - 'traefik.http.routers.openhim-ssl.tls=true'
+      - 'traefik.http.routers.openhim-ssl.entrypoints=web-secure'
+      - 'traefik.http.routers.openhim-ssl.rule=Host(`test2.cihis.org`) && PathPrefix(`/openhimcore`)'
+      - 'traefik.http.routers.openhim-ssl.middlewares=openhim-ssl'
+      - 'traefik.http.middlewares.openhim-ssl.stripprefix.prefixes=/openhimcore'
+      - 'traefik.http.middlewares.openhim-ssl.stripprefix.forceSlash=false'
 
   openhim-console:
     container_name: openhim-console
@@ -71,20 +68,19 @@ services:
       timeout: 60s
       retries: 3
     ports:
-        - "9000:80"         
+      - "9000:80"
     labels:
-        - 'traefik.enable=true'
-        - 'traefik.docker.network=sigdep3_hie'
-        - 'traefik.http.services.openhim-console.loadbalancer.server.port=80'
-        - 'traefik.http.services.openhim-console.loadbalancer.server.scheme=http'
-        - 'traefik.http.routers.openhim-console.service=openhim-console'
-        - 'traefik.http.routers.openhim-console.tls=true'
-        - 'traefik.http.routers.openhim-console.entrypoints=web-secure'
-        - 'traefik.http.routers.openhim-console.rule=Host(`test2.cihis.org`)'
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=sigdep3_hie'
+      - 'traefik.http.services.openhim-console.loadbalancer.server.port=80'
+      - 'traefik.http.services.openhim-console.loadbalancer.server.scheme=http'
+      - 'traefik.http.routers.openhim-console.service=openhim-console'
+      - 'traefik.http.routers.openhim-console.tls=true'
+      - 'traefik.http.routers.openhim-console.entrypoints=web-secure'
+      - 'traefik.http.routers.openhim-console.rule=Host(`test2.cihis.org`)'
     networks:
       - hie
 
-  # Loads Default OpenHIM Config
   openhim-config:
     container_name: openhim-config
     image: ghcr.io/i-tech-uw/openhim-config:v0.0.0
@@ -93,9 +89,6 @@ services:
     networks:
       - hie
 
-###
-  # OpenCR - Client Registry
-  ###
   opencr:
     container_name: opencr
     hostname: opencr
@@ -117,13 +110,13 @@ services:
       - 'traefik.http.routers.opencr.tls=true'
       - 'traefik.http.routers.opencr.entrypoints=web-secure'
       - 'traefik.http.services.opencr.loadbalancer.server.port=3000'
-      - 'traefik.http.routers.opencr.rule=Host(`test2.cihis.org`) && PathPrefix(`/crux`) || PathPrefix(`/ocrux`)' 
+      - 'traefik.http.routers.opencr.rule=Host(`test2.cihis.org`) && PathPrefix(`/crux`) || PathPrefix(`/ocrux`)'
       - 'traefik.http.services.opencr.loadbalancer.server.scheme=http'
       - 'traefik.http.routers.opencr.service=opencr'
     networks:
       - hie
     ports:
-      - 3000:3000         
+      - 3000:3000
 
   opencr-fhir:
     image: hapiproject/hapi:v5.5.1
@@ -166,10 +159,6 @@ services:
     networks:
       - hie
 
-   # OpenELIS Setup
-   ####
-  # OpenELIS
-  ####
   certs:
     container_name: oe-certs
     image: ghcr.io/i-tech-uw/certgen:main
@@ -184,20 +173,28 @@ services:
 
   database:
     container_name: openelisglobal-database
-    image: postgres:9.5
+    image: postgres:14.4
     ports:
-       - "15432:5432"
+      - "15432:5432"
     restart: always
     env_file:
       - ./configs/openelis/database/database.env
     volumes:
       # preserves the database between containers
-      - db-data:/var/lib/postgresql/data
-        # files here will run on install
+      - db-data:/var/lib/postgresql/data # files here will run on install
       - ./configs/openelis/database/dbInit:/docker-entrypoint-initdb.d
 
     healthcheck:
-      test: ["CMD", "pg_isready", "-q", "-d", "clinlims", "-U", "clinlims"]
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-q",
+          "-d",
+          "clinlims",
+          "-U",
+          "clinlims"
+        ]
       timeout: 45s
       interval: 10s
       retries: 10
@@ -207,12 +204,12 @@ services:
     image: ghcr.io/i-tech-uw/openelis-global-2:develop
     depends_on:
       - database
+      - certs
     ports:
-       - "8443:8443"
+      - "8443:8443"
     restart: always
     environment:
-      - TZ=Africa/Nairobi
-        # context.xml doesn't seem to be able to pick up environment variables directly, so we are passing them in as CATALINA_OPTS
+      - TZ=Africa/Nairobi # context.xml doesn't seem to be able to pick up environment variables directly, so we are passing them in as CATALINA_OPTS
       - CATALINA_OPTS= -Ddatasource.url=jdbc:postgresql://database:5432/clinlims -Ddatasource.username=clinlims -Ddatasource.password=clinlims
     volumes:
       - key_trust-store-volume:/etc/openelis-global
@@ -222,30 +219,64 @@ services:
       - source: datasource.password
       - source: common.properties
 
-
   fhir.openelis.org:
     container_name: external-fhir-api
-    image: hapiproject/hapi:v5.5.1
-    # ports:
-    # - "8081:8080"
+    image: hapiproject/hapi:v6.6.0-tomcat
+    depends_on:
+      - database
+      - certs
+    ports:
+      - "8085:8080"
+      - "8444:8443"
+    networks:
+      - hie
     restart: always
     environment:
       - hapi.fhir.auto_create_placeholder_reference_targets=true
       - hapi.fhir.allow_placeholder_references=true
       - hapi.fhir.allow_external_references=true
+    secrets:
+      - source: hapi_application.yaml
+
+  frontend.openelis.org:
+    image: itechuw/openelis-global-2-frontend:develop
+    container_name: openelisglobal-front-end
+    networks:
+      - hie
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
+
+  proxy:
+    image: nginx:1.15-alpine
+    container_name: openelisglobal-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - certs-vol:/etc/nginx/certs/
+      - keys-vol:/etc/nginx/keys/
+      - ./configs/nginx/nginx-prod.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - hie
+    restart: unless-stopped
+    depends_on:
+      - certs
 
 secrets:
   datasource.password:
     file: ./configs/openelis/properties/datasource.password
   common.properties:
     file: ./configs/openelis/properties/common.properties
+  hapi_application.yaml:
+    file: ./configs/hapi/properties/hapi_application.yaml
 
 volumes:
   db-data:
   key_trust-store-volume:
   certs-vol:
   certs:
-  keys-vol:       
+  keys-vol:
 
 networks:
   hie:
